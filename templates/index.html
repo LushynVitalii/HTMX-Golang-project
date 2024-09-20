@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTMX & Go</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 flex w-full items-center justify-center min-h-[53px] p-5"
+      style="background-color: #2c2c2c"
+    >
+      <div
+        class="flex flex-1 items-center justify-between text-white max-w-5xl"
+      >
+        <div class="flex">
+          <a href="/" class="text-white">
+            <img
+              src="https://www.talksoon.com/assets/img/talksoon-logo-white.png"
+              alt="Talksoon Logo"
+              class="w-[60%]"
+            />
+          </a>
+        </div>
+        <div class="hidden lg:block text-sm">
+          {{ .Header }}
+          <a href="tel:18559504006">{{ .Tel }}</a>
+        </div>
+        <div class="hidden lg:flex flex-row gap-6 uppercase text-[.85rem]">
+          <a class="text-[.8em]" href="/login">
+            <i class="fa-regular fa-user"></i>
+            <p class="inline-block ml-1">Login</p>
+          </a>
+          <a class="text-[.8em]" href="/language">
+            <i class="fa-solid fa-gear"></i>
+            <p class="inline-block ml-1">FR</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Main banner -->
+    <div
+      class="grid place-items-center min-h-[80vh] max-h-[600px] bg-zinc-900 p-8"
+    >
+      <div>
+        <h1
+          class="max-w-[700px] mb-3 text-5xl text-white font-bold text-center leading-tight"
+        >
+          {{ .H1 }}
+        </h1>
+        <p class="uppercase text-xs text-white text-center">
+          <i>{{ .Paragraph }}</i>
+        </p>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="grid place-items-center py-16 text-center">
+        <h2 class="text-[2.4rem] font-bold mb-10">{{ .ProjectsTitle}}</h2>
+        <p class="text-[1.3rem] max-w-[600px] font-extralight text-gray-300">{{ .ProjectsSubTitle}}</p>
+        <h2>here</h2>
+    </div>
+  </body>
+</html>
