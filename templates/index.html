@@ -70,7 +70,7 @@
       </p>
       <!-- Engagement -->
       <sectio
-        class="grid grid-cols-1 md:grid-cols-2 max-w-[100%] xl:max-w-[60%] items-center gap-12 my-20"
+        class="grid grid-cols-1 md:grid-cols-2 max-w-[100%] xl:max-w-[60%] items-center gap-12 my-24"
       >
         <img
           src="assets/images/engagement_img.webp"
@@ -120,165 +120,33 @@
       <div class="w-[50px] h-[2px] bg-red-500" />
     </div>
     <!-- Beta users -->
-    <section class=" flex flex-col justify-center items-center my-20">
+    <section class=" flex flex-col justify-center items-center my-24">
       <h2 class="text-[2.4rem] font-bold ">Thanks to our beta users!</h2>
       <div
         class="grid grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
       >
-      <!-- Jatoba -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+      {{ range .BetaUsers }}
+      <a href="{{ .CompanyUrl}}" target="_blank"
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8 rounded"
         >
           <div
             class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
           >
             <img
-              src="https://www.talksoon.com/assets/img/partners/jatoba.png"
+              src="{{ .ImageUrl }}"
               onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
+              alt="{{ .CompanyName }} Logo"
               class="w-full"
+              role="presentation"
             />
           </div>
           <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap  ">
-            Restaurant
+            {{ .CompanyName }}
           </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Jatoba</p>
-        </div>
-        <!-- Lallier -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/lallier.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Car Dealership
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Groupe Lallier</p>
-        </div>
-        <!-- Bardagi -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/bardagi.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Real Estate
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Bardagi</p>
-        </div>
-        <!-- Golf -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/golf-versant.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Golf
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Golf le Versant</p>
-        </div>
-        <!-- Services -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/vitre_net.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Services
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Vitre Net</p>
-        </div>
-        <!-- Hospitality -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/germain.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Hospitality
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Germain</p>
-        </div>
-        <!-- Legal -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/sosticket.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Legal
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">SOS Ticket</p>
-        </div>
-        <!-- Recreation -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/eco-odyssee.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Recreation
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Eco-Odyssee</p>
-        </div>
+          <p class="text-2xl font-extralight whitespace-nowrap">{{ .CompanyName }}</p>
+        </a>
+          {{ end }}
       </div>
-      
       </div>
     </section>
   </body>
