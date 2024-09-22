@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
     />
   </head>
   <body class="bg-white overflow-x-hidden">
     <!-- Navigation -->
     <nav
-      class="fixed top-0 flex w-full items-center justify-center min-h-[53px] p-6"
+      class="fixed top-0 flex w-full items-center justify-center min-h-[68px] px-4"
       style="background-color: #2c2c2c"
     >
       <div
@@ -34,21 +34,21 @@
           {{ .Header }}
           <a href="tel:18559504006">{{ .Tel }}</a>
         </div>
-        <div class="hidden lg:flex flex-row gap-6 uppercase text-[.85rem]">
-          <a class="text-[.8em]" href="/login">
-            <i class="fa-regular fa-user"></i>
+        <div class="hidden lg:flex flex-row gap-2 uppercase text-[.85rem]">
+          <button href="/login" class="p-2 rounded-md hover:bg-gray-600">
+            <i class="bi bi-chat"></i>
             <p class="inline-block ml-1">Login</p>
-          </a>
-          <a class="text-[.8em]" href="/language">
-            <i class="fa-solid fa-gear"></i>
+          </button>
+          <button href="/language" class="p-2 rounded-md hover:bg-gray-600">
+            <i class="bi bi-gear"></i>
             <p class="inline-block ml-1">FR</p>
-          </a>
+          </button>
         </div>
       </div>
     </nav>
     <!-- Main banner -->
     <div
-      class="flex items-center justify-center min-h-[80vh] max-h-[600px] bg-zinc-900 p-6"
+      class="flex items-center justify-center min-h-[80vh] max-h-[600px] bg-zinc-900 px-4"
     >
       <div>
         <h1
@@ -63,34 +63,223 @@
     </div>
 
     <!-- Projects -->
-    <div class="grid place-items-center py-16 text-center p-6">
+    <div class="grid place-items-center py-16 text-center px-4">
       <h2 class="text-[2.4rem] font-bold mb-10">{{ .ProjectsTitle}}</h2>
       <p class="text-[1.3rem] max-w-[600px] font-extralight text-gray-400">
         {{ .ProjectsSubTitle}}
       </p>
       <!-- Engagement -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 md:max-w-[60%] items-center gap-12 my-16"
+      <sectio
+        class="grid grid-cols-1 md:grid-cols-2 max-w-[100%] xl:max-w-[60%] items-center gap-12 my-20"
       >
         <img
           src="assets/images/engagement_img.webp"
           alt="Engagement"
           class="aspect-square object-cover overflow-hidden rounded-lg shadow-2xl"
         />
-        <div class="flex">
-          <div class="flex flex-row gap-6 align-start">
-            <i class="fa-regular fa-message fa-2x"></i>
+        <div class="flex flex-col gap-8">
+          <div class="flex flex-row gap-8 align-start">
+            <i class="bi bi-chat text-3xl text-red-500"></i>
             <div>
-              <div class="text-2xl text-left">Never Miss a Call</div>
-              <div class="text-regular text-left text-gray-400">
+              <div class="text-2xl text-left font-extralight mb-4">
+                Never Miss a Call
+              </div>
+              <div class="text-regular text-left font-extralight text-gray-400">
                 Our system makes sure that every caller gets a quick response,
                 even when your team is busy.
               </div>
             </div>
           </div>
+          <div class="flex flex-row gap-8 align-start">
+            <i class="bi bi-pie-chart text-3xl text-red-500"></i>
+
+            <div>
+              <div class="text-2xl text-left font-extralight mb-4">
+                Performance Analytics
+              </div>
+              <div class="text-regular text-left font-extralight text-gray-400">
+                Gain rich insights from every missed call. Get real-time
+                detailed reporting. A/B Test and increase conversions.
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row gap-8 align-start">
+            <i class="bi bi-person-circle text-3xl text-red-500"></i>
+            <div>
+              <div class="text-2xl text-left font-extralight mb-4">
+                Improve Customer Satisfaction
+              </div>
+              <div class="text-regular text-left font-extralight text-gray-400">
+                Voicemails are dead. On hold music sucks. Time to move on to
+                something new that your customers will love.
+              </div>
+            </div>
+          </div>
         </div>
-        <div></div>
-      </div>
+      </sectio>
+      <div class="w-[50px] h-[2px] bg-red-500" />
     </div>
+    <!-- Beta users -->
+    <section class=" flex flex-col justify-center items-center my-20">
+      <h2 class="text-[2.4rem] font-bold ">Thanks to our beta users!</h2>
+      <div
+        class="grid grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
+      >
+      <!-- Jatoba -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/jatoba.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap  ">
+            Restaurant
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Jatoba</p>
+        </div>
+        <!-- Lallier -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/lallier.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Car Dealership
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Groupe Lallier</p>
+        </div>
+        <!-- Bardagi -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/bardagi.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Real Estate
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Bardagi</p>
+        </div>
+        <!-- Golf -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/golf-versant.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Golf
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Golf le Versant</p>
+        </div>
+        <!-- Services -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/vitre_net.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Services
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Vitre Net</p>
+        </div>
+        <!-- Hospitality -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/germain.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Hospitality
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Germain</p>
+        </div>
+        <!-- Legal -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/sosticket.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Legal
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">SOS Ticket</p>
+        </div>
+        <!-- Recreation -->
+        <div
+          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+        >
+          <div
+            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          >
+            <img
+              src="https://www.talksoon.com/assets/img/partners/eco-odyssee.png"
+              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+              alt="jatoba Logo"
+              class="w-full"
+            />
+          </div>
+          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
+            Recreation
+          </p>
+          <p class="text-2xl font-extralight whitespace-nowrap">Eco-Odyssee</p>
+        </div>
+      </div>
+      
+      </div>
+    </section>
   </body>
 </html>
