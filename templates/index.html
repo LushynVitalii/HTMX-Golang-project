@@ -12,274 +12,232 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav
-      class="fixed top-0 flex w-full items-center justify-center min-h-[68px] px-4"
-      style="background-color: #2c2c2c"
-    >
-      <div
-        class="flex flex-1 items-center justify-between text-white max-w-5xl"
+  <body class="bg-white overflow-x-hidden tracking-wider">
+    <div class="flex flex-col items-center">
+      <!-- Navigation -->
+      <header
+        class="fixed top-0 flex w-full items-center justify-center min-h-[4.25rem] px-4"
+        style="background-color: #2c2c2c"
       >
-        <div class="flex">
-          <a href="/" class="text-white">
-            <img
-              src="https://www.talksoon.com/assets/img/talksoon-logo-white.png"
-              alt="Talksoon Logo"
-              class="w-[60%]"
-            />
-          </a>
-        </div>
-        <div class="hidden lg:block text-sm">
-          {{ .Header }}
-          <a href="tel:18559504006">{{ .Tel }}</a>
-        </div>
-        <div class="hidden lg:flex flex-row gap-2 uppercase text-[.85rem]">
-          <button href="/login" class="p-2 rounded-md hover:bg-gray-600">
-            <i class="bi bi-chat"></i>
-            <p class="inline-block ml-1">Login</p>
-          </button>
-          <button href="/language" class="p-2 rounded-md hover:bg-gray-600">
-            <i class="bi bi-gear"></i>
-            <p class="inline-block ml-1">FR</p>
-          </button>
-        </div>
-      </div>
-    </nav>
-    <!-- Main banner -->
-    <div
-      class="flex items-center justify-center min-h-[80vh] max-h-[600px] bg-zinc-900 px-4"
-    >
-      <div>
-        <h1
-          class="max-w-[700px] mb-3 text-5xl text-white font-bold text-center leading-tight"
+        <div
+          class="flex flex-1 items-center justify-between text-white max-w-5xl"
         >
-          {{ .H1 }}
-        </h1>
-        <p class="uppercase text-xs text-white text-center">
-          <i>{{ .Paragraph }}</i>
-        </p>
+          <div class="flex">
+            <a href="#" class="text-white" hx-on="click: window.scrollTo(0, 0);">
+              <img
+                src="https://www.talksoon.com/assets/img/talksoon-logo-white.png"
+                alt="Talksoon Logo"
+                class="w-[60%]"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:block text-sm">
+            {{ .Header }}
+            <a href="tel:18559504006" class="hover:underline">{{ .Tel }}</a>
+          </div>
+          <div class="hidden lg:flex flex-row gap-2 uppercase text-xs">
+            <button href="/login" class="p-2 rounded-md hover:bg-gray-600">
+              <i class="bi bi-chat"></i>
+              <p class="inline-block ml-1">Login</p>
+            </button>
+            <button href="/language" class="p-2 rounded-md hover:bg-gray-600">
+              <i class="bi bi-gear"></i>
+              <p class="inline-block ml-1">FR</p>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- Main banner -->
+      <div
+        class="flex w-full items-center justify-center min-h-[80vh] max-h-[37.5rem] bg-zinc-900 px-4"
+      >
+        <div>
+          <h1
+            class="max-w-[43.75rem] mb-3 text-5xl text-white font-bold text-center leading-tight"
+          >
+            {{ .H1 }}
+          </h1>
+          <p class="uppercase text-xs text-white text-center">
+            <i>{{ .Paragraph }}</i>
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- Projects -->
-    <div class="grid place-items-center py-16 text-center px-4">
-      <h2 class="text-[2.4rem] font-bold mb-10">{{ .ProjectsTitle}}</h2>
-      <p class="text-[1.3rem] max-w-[600px] font-extralight text-gray-400">
-        {{ .ProjectsSubTitle}}
-      </p>
-      <!-- Engagement -->
-      <sectio
-        class="grid grid-cols-1 md:grid-cols-2 max-w-[100%] xl:max-w-[60%] items-center gap-12 my-20"
+      <!-- Projects -->
+      <section class="grid place-items-center py-16 text-center px-4">
+        <h2 class="text-4xl font-bold mb-10">{{ .ProjectsTitle}}</h2>
+        <p class="text-xl max-w-[37.5rem] font-extralight text-gray-400">
+          {{ .ProjectsSubTitle}}
+        </p>
+        <!-- Engagement -->
+        <sectio
+          class="grid grid-cols-1 md:grid-cols-2 max-w-[100%] xl:max-w-[60%] items-center gap-12 my-24"
+        >
+          <img
+            src="assets/images/engagement_img.webp"
+            alt="Engagement"
+            class="aspect-square object-cover overflow-hidden rounded-lg shadow-2xl"
+          />
+          <div class="flex flex-col gap-8">
+            <div class="flex flex-row gap-8 align-start">
+              <i class="bi bi-chat text-3xl text-red-500"></i>
+              <div>
+                <div class="text-2xl text-left font-extralight mb-4">
+                  Never Miss a Call
+                </div>
+                <div
+                  class="text-regular text-left font-extralight text-gray-400"
+                >
+                  Our system makes sure that every caller gets a quick response,
+                  even when your team is busy.
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-row gap-8 align-start">
+              <i class="bi bi-pie-chart text-3xl text-red-500"></i>
+
+              <div>
+                <div class="text-2xl text-left font-extralight mb-4">
+                  Performance Analytics
+                </div>
+                <div
+                  class="text-regular text-left font-extralight text-gray-400"
+                >
+                  Gain rich insights from every missed call. Get real-time
+                  detailed reporting. A/B Test and increase conversions.
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-row gap-8 align-start">
+              <i class="bi bi-person-circle text-3xl text-red-500"></i>
+              <div>
+                <div class="text-2xl text-left font-extralight mb-4">
+                  Improve Customer Satisfaction
+                </div>
+                <div
+                  class="text-regular text-left font-extralight text-gray-400"
+                >
+                  Voicemails are dead. On hold music sucks. Time to move on to
+                  something new that your customers will love.
+                </div>
+              </div>
+            </div>
+          </div>
+        </sectio>
+        <div class="w-[3.125rem] h-[0.125rem] bg-red-500" />
+      </section>
+      <!-- Beta users -->
+      <section class="flex flex-col justify-center items-center px-4">
+        <h2 class="text-4xl font-bold text-center">
+          Thanks to our beta users!
+        </h2>
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
+        >
+          {{ range .BetaUsers }}
+          <a
+            href="{{ .CompanyUrl}}"
+            target="_blank"
+            class="flex flex-col items-center justify-center aspect-square shadow-2xl p-4 md:p-8 rounded"
+          >
+            <div
+              class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+            >
+              <img
+                src="{{ .ImageUrl }}"
+                onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
+                alt="{{ .CompanyName }} Logo"
+                class="w-full"
+                role="presentation"
+              />
+            </div>
+            <p
+              class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap w-full truncate"
+            >
+              {{ .CompanyName }}
+            </p>
+            <p
+              class="text-2xl font-extralight whitespace-nowrap w-full truncate"
+            >
+              {{ .CompanyName }}
+            </p>
+          </a>
+          {{ end }}
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section
+        class="flex flex-col w-full items-center justify-center h-[23.5rem] relative bg-center"
       >
         <img
-          src="assets/images/engagement_img.webp"
-          alt="Engagement"
-          class="aspect-square object-cover overflow-hidden rounded-lg shadow-2xl"
+          src="https://www.talksoon.com/assets/img/bg7.jpg"
+          class="w-full h-full brightness-50"
+          alt=""
+          role="presentation"
         />
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-row gap-8 align-start">
-            <i class="bi bi-chat text-3xl text-red-500"></i>
-            <div>
-              <div class="text-2xl text-left font-extralight mb-4">
-                Never Miss a Call
-              </div>
-              <div class="text-regular text-left font-extralight text-gray-400">
-                Our system makes sure that every caller gets a quick response,
-                even when your team is busy.
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row gap-8 align-start">
-            <i class="bi bi-pie-chart text-3xl text-red-500"></i>
+        <div class="absolute left-0 right-0 mx-auto w-fit">
+          <p class="text-xl text-white text-center font-bold mb-4">
+            Contact us at
+          </p>
+          <h2 class="text-center text-4xl font-extralight leading-tight">
+            <a href="tel:18559504006" class="text-white hover:underline"
+              >1 (855) 950-4006</a
+            >
+            <span class="text-gray-400">or</span>
+            <a href="mailto:hi@talksoon.com" class="text-white hover:underline"
+              >hi@talksoon.com</a
+            >
+          </h2>
+        </div>
+      </section>
 
-            <div>
-              <div class="text-2xl text-left font-extralight mb-4">
-                Performance Analytics
-              </div>
-              <div class="text-regular text-left font-extralight text-gray-400">
-                Gain rich insights from every missed call. Get real-time
-                detailed reporting. A/B Test and increase conversions.
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row gap-8 align-start">
-            <i class="bi bi-person-circle text-3xl text-red-500"></i>
-            <div>
-              <div class="text-2xl text-left font-extralight mb-4">
-                Improve Customer Satisfaction
-              </div>
-              <div class="text-regular text-left font-extralight text-gray-400">
-                Voicemails are dead. On hold music sucks. Time to move on to
-                something new that your customers will love.
-              </div>
-            </div>
-          </div>
-        </div>
-      </sectio>
-      <div class="w-[50px] h-[2px] bg-red-500" />
-    </div>
-    <!-- Beta users -->
-    <section class=" flex flex-col justify-center items-center my-20">
-      <h2 class="text-[2.4rem] font-bold ">Thanks to our beta users!</h2>
-      <div
-        class="grid grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
+      <!-- Footer -->
+      <footer
+        class="flex flex-col md:flex-row w-full gap-6 items-center justify-between min-h-[5rem] max-w-[100%] lg:max-w-[70%] px-4 py-4 font-extralight"
       >
-      <!-- Jatoba -->
         <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+          class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-800 uppercase"
         >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+          <a
+            href="https://talksoon.com/privacy"
+            target="_blank"
+            url-translate=""
+            data-translate=""
+            >Privacy Policy</a
           >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/jatoba.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap  ">
-            Restaurant
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Jatoba</p>
+          <a
+            href="https://talksoon.com/aup"
+            target="_blank"
+            url-translate=""
+            data-translate=""
+          >
+            Acceptable Use Policy
+          </a>
+          <a
+            href="http://talksoon.com/terms"
+            target="_blank"
+            url-translate=""
+            data-translate=""
+          >
+            Terms
+          </a>
         </div>
-        <!-- Lallier -->
         <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
+          id="copyright"
+          hx-get="/get-year"
+          hx-trigger="load"
+          hx-swap="outerHTML"
+          class="text-xs"
         >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/lallier.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Car Dealership
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Groupe Lallier</p>
+          &copy; <span id="year"></span>. TalkSoon Inc.
         </div>
-        <!-- Bardagi -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/bardagi.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Real Estate
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Bardagi</p>
-        </div>
-        <!-- Golf -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/golf-versant.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Golf
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Golf le Versant</p>
-        </div>
-        <!-- Services -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/vitre_net.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Services
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Vitre Net</p>
-        </div>
-        <!-- Hospitality -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/germain.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Hospitality
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Germain</p>
-        </div>
-        <!-- Legal -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/sosticket.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Legal
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">SOS Ticket</p>
-        </div>
-        <!-- Recreation -->
-        <div
-          class="flex flex-col items-center justify-center aspect-square shadow-2xl p-8"
-        >
-          <div
-            class="w-[70%] h-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
-          >
-            <img
-              src="https://www.talksoon.com/assets/img/partners/eco-odyssee.png"
-              onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-              alt="jatoba Logo"
-              class="w-full"
-            />
-          </div>
-          <p class="text-sm text-gray-400 font-bold mb-2 uppercase whitespace-nowrap">
-            Recreation
-          </p>
-          <p class="text-2xl font-extralight whitespace-nowrap">Eco-Odyssee</p>
-        </div>
-      </div>
-      
-      </div>
-    </section>
+
+        <script>
+          document.getElementById("year").textContent =
+            new Date().getFullYear();
+        </script>
+      </footer>
+    </div>
   </body>
 </html>
