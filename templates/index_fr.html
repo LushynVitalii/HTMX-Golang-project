@@ -24,7 +24,7 @@
         style="background-color: #2c2c2c"
       >
         <div
-          class="flex w-full items-center justify-between text-white xl:max-w-[70%]"
+          class="flex w-full items-center justify-between gap-4 text-white xl:max-w-[70%]"
         >
           <div class="flex">
             <a
@@ -41,10 +41,18 @@
           </div>
           <div class="hidden lg:block text-sm">
             {{ .Header }}
-            <a href="tel:18559504006" class="hover:underline">{{ .Tel }}</a>
+            <a
+              href="tel:18559504006"
+              aria-label="Appelez-nous au 18559504006"
+              class="hover:underline"
+              >{{ .Tel }}</a
+            >
           </div>
           <div class="hidden lg:flex flex-row gap-2 uppercase text-xs">
-            <button href="/login" class="p-2 rounded-md hover:bg-gray-600">
+            <button
+              href="#"
+              class="p-2 rounded-md hover:bg-gray-600 whitespace-nowrap"
+            >
               <i class="bi bi-chat"></i>
               <p class="inline-block ml-1">Connexion</p>
             </button>
@@ -52,7 +60,7 @@
               hx-get="/en"
               hx-replace-url="true"
               hx-target="#main-content"
-              class="p-2 rounded-md hover:bg-gray-600"
+              class="p-2 rounded-md hover:bg-gray-600 whitespace-nowrap"
             >
               <i class="bi bi-gear"></i>
               <p class="inline-block ml-1">EN</p>
@@ -67,7 +75,7 @@
       >
         <div>
           <h1
-            class="max-w-[43.75rem] mb-6 md:mb-3 text-4xl md:text-5xl text-white font-bold text-center leading-tight"
+            class="max-w-[43.75rem] mb-6 text-4xl md:text-[3rem] text-white font-bold text-center leading-tight"
           >
             {{ .H1 }}
           </h1>
@@ -196,7 +204,10 @@
             Contactez-nous au
           </p>
           <h2 class="text-center text-4xl font-extralight leading-tight">
-            <a href="tel:18559504006" class="text-white hover:underline"
+            <a
+              href="tel:18559504006"
+              aria-label="Appelez-nous au 18559504006"
+              class="text-white hover:underline"
               >1 (855) 950-4006</a
             >
             <span class="text-gray-400">ou au</span>
@@ -238,13 +249,7 @@
             Conditions
           </a>
         </div>
-        <div
-          id="copyright"
-          hx-get="/get-year"
-          hx-trigger="load"
-          hx-swap="outerHTML"
-          class="text-xs"
-        >
+        <div id="copyright" class="text-xs">
           &copy; <span id="year"></span>. TalkSoon Inc.
         </div>
 
@@ -254,6 +259,7 @@
         </script>
         <a
           href="tel:18559504006"
+          aria-label="Appelez-nous au 18559504006"
           class="md:hidden fixed bottom-0 flex flex-col items-center justify-center w-full text-white h-[3rem] bg-gray-800"
         >
           <i class="bi bi-phone"></i>
