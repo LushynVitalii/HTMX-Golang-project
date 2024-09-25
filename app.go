@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"embed"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
-	"text/template"
 )
 
 type BetaUser struct {
@@ -25,25 +26,46 @@ type PageContent struct {
 	BetaUsers        []BetaUser
 }
 
+//go:embed templates/*
+var resources embed.FS
+
+var t = template.Must(template.ParseFS(resources, "templates/*"))
+
 func main() {
 	port := os.Getenv("PORT")
-    if port == "" {
-        port = "8080"
-    }
+	if port == "" {
+		port = "8080"
 
+	}
 	fmt.Println("Привіт мій друже! Port:", port, os.Getenv("FLY_REGION"))
-
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-	homePage := func(w http.ResponseWriter, r *http.Request) {
-		var tmpl *template.Template
-		var content PageContent
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" || r.URL.Path == "/en" {
+			data := PageContent{
+				Header:           "For a Demo, Simply text « DEMO » at",
+				Tel:              "1 (855) 950-4006",
+				H1:               "Convert your missed calls into business opportunities",
+				Paragraph:        "Coming soon to a phone system near you!",
+				ProjectsTitle:    "Every. Call. Matters.",
+				ProjectsSubTitle: "Create seamless engagement with your callers at all times. Whether you are open or closed, free to pick up the phone or busy, make every call count.",
+				BetaUsers: []BetaUser{
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/jatoba.png", CompanyName: "Jatoba", CompanyType: "Restaurant", CompanyUrl: "https://www.jatobamontreal.com/"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/lallier.png", CompanyName: "Groupe Lallier", CompanyType: "Car Dealership", CompanyUrl: "https://www.lallier.com/en"}, {ImageUrl: "https://www.talksoon.com/assets/img/partners/bardagi.png", CompanyName: "Bardagi", CompanyType: "Real Estate", CompanyUrl: "https://www.bardagi.com/"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/golf-versant.png", CompanyName: "Golf le Versant", CompanyType: "Golf", CompanyUrl: "https://golfleversant.com/"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/vitre_net.png", CompanyName: "Vitre Net", CompanyType: "Services", CompanyUrl: "https://vitres.net/en/"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/germain.png", CompanyName: "Germain", CompanyType: "Hospitality", CompanyUrl: "https://www.germainhotels.com/en"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/sosticket.png", CompanyName: "SOS Ticket", CompanyType: "Legal", CompanyUrl: "https://www.sosticket.ca/"},
+					{ImageUrl: "https://www.talksoon.com/assets/img/partners/eco-odyssee.png", CompanyName: "Eco-Odyssee", CompanyType: "Recreation", CompanyUrl: "https://www.eco-odyssee.ca/en/"},
+				},
+			}
 
-		// Check if the user requests the French page
-		switch r.URL.Path {
-		case "/fr":
-			tmpl, _ = template.ParseFiles("templates/index_fr.html")
-			content = PageContent{
+			err := t.ExecuteTemplate(w, "index_en.html", data)
+			if err != nil {
+				http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
+			}
+		} else if r.URL.Path == "/fr" {
+			data := PageContent{
 				Header:           "Pour une démo, envoyez simplement le mot « DEMO » au",
 				Tel:              "1 (855) 950-4006",
 				H1:               "Transformez vos appels manqués en opportunités commerciales",
@@ -61,36 +83,16 @@ func main() {
 					{ImageUrl: "https://www.talksoon.com/assets/img/partners/eco-odyssee.png", CompanyName: "Eco-Odyssee", CompanyType: "Loisirs", CompanyUrl: "https://www.eco-odyssee.ca/en/"},
 				},
 			}
-		case "/en", "/":
-			tmpl, _ = template.ParseFiles("templates/index_en.html")
-			content = PageContent{
-				Header:           "For a Demo, Simply text « DEMO » at",
-				Tel:              "1 (855) 950-4006",
-				H1:               "Convert your missed calls into business opportunities",
-				Paragraph:        "Coming soon to a phone system near you!",
-				ProjectsTitle:    "Every. Call. Matters.",
-				ProjectsSubTitle: "Create seamless engagement with your callers at all times. Whether you are open or closed, free to pick up the phone or busy, make every call count.",
-				BetaUsers: []BetaUser{
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/jatoba.png", CompanyName: "Jatoba", CompanyType: "Restaurant", CompanyUrl: "https://www.jatobamontreal.com/"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/lallier.png", CompanyName: "Groupe Lallier", CompanyType: "Car Dealership", CompanyUrl: "https://www.lallier.com/en"}, {ImageUrl: "https://www.talksoon.com/assets/img/partners/bardagi.png", CompanyName: "Bardagi", CompanyType: "Real Estate", CompanyUrl: "https://www.bardagi.com/"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/golf-versant.png", CompanyName: "Golf le Versant", CompanyType: "Golf", CompanyUrl: "https://golfleversant.com/"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/vitre_net.png", CompanyName: "Vitre Net", CompanyType: "Services", CompanyUrl: "https://vitres.net/en/"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/germain.png", CompanyName: "Germain", CompanyType: "Hospitality", CompanyUrl: "https://www.germainhotels.com/en"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/sosticket.png", CompanyName: "SOS Ticket", CompanyType: "Legal", CompanyUrl: "https://www.sosticket.ca/"},
-					{ImageUrl: "https://www.talksoon.com/assets/img/partners/eco-odyssee.png", CompanyName: "Eco-Odyssee", CompanyType: "Recreation", CompanyUrl: "https://www.eco-odyssee.ca/en/"},
-				},
+
+			err := t.ExecuteTemplate(w, "index_fr.html", data)
+			if err != nil {
+				http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
 			}
-		default:
+		} else {
 			http.NotFound(w, r)
-			return
 		}
 
-		tmpl.Execute(w, content)
-	}
-
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/en", homePage)
-	http.HandleFunc("/fr", homePage)
+	})
 
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

@@ -1,3 +1,3 @@
-module github.com/fly-apps/go-example
+module module-path
 
 go 1.22

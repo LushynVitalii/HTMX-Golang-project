@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for htmx-golang-my-project on 2024-09-24T23:06:33-04:00
+# fly.toml app configuration file generated for htmx-golang-project on 2024-09-25T12:36:08-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'htmx-golang-my-project'
+app = 'htmx-golang-project'
 primary_region = 'ewr'
 
 [build]
