@@ -71,7 +71,7 @@
 
       <!-- Main banner -->
       <div
-        class="flex w-full items-center justify-center min-h-[80vh] max-h-[37.5rem] bg-zinc-900 px-4"
+        class="flex w-full items-center justify-center h-[calc(100dvh-3.3rem)] md:min-h-[80vh] md:max-h-[37.5rem] bg-zinc-900 px-4"
       >
         <div>
           <h1
@@ -155,7 +155,7 @@
           Merci à nos utilisateurs bêta !
         </h2>
         <div
-          class="grid grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
         >
           {{ range .BetaUsers }}
           <a
@@ -220,7 +220,7 @@
 
       <!-- Footer -->
       <footer
-        class="flex flex-col md:flex-row w-full gap-6 items-center justify-between min-h-[5rem] max-w-[100%] lg:max-w-[70%] px-4 py-4 font-extralight"
+        class="flex flex-col md:flex-row w-full gap-6 items-center justify-between min-h-[5.8rem] max-w-[100%] lg:max-w-[70%] px-4 py-4 font-extralight"
       >
         <div
           class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-800 uppercase"
@@ -260,7 +260,7 @@
         <a
           href="tel:18559504006"
           aria-label="Appelez-nous au 18559504006"
-          class="md:hidden fixed bottom-0 flex flex-col items-center justify-center w-full text-white h-[3rem] bg-gray-800"
+          class="md:hidden fixed bottom-0 flex flex-col items-center justify-center w-full text-white h-[3.3rem] bg-gray-800"
         >
           <i class="bi bi-phone"></i>
           <p class="leading-none">Planifier une démo</p>
