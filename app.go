@@ -28,7 +28,7 @@ type PageContent struct {
 func main() {
 	port := os.Getenv("PORT")
     if port == "" {
-        port = "8081"
+        port = "8080"
     }
 
 	fmt.Println("Привіт мій друже! Port:", port, os.Getenv("FLY_REGION"))
