@@ -31,7 +31,7 @@ func main() {
         port = "8081"
     }
 
-	fmt.Println("Привіт мій друже! Port:", port)
+	fmt.Println("Привіт мій друже! Port:", port, os.Getenv("FLY_REGION"))
 
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
