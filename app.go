@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"embed"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -30,6 +30,7 @@ type PageContent struct {
 var resources embed.FS
 
 var t = template.Must(template.ParseFS(resources, "templates/*"))
+var err error
 
 func main() {
 	port := os.Getenv("PORT")
@@ -60,10 +61,8 @@ func main() {
 				},
 			}
 
-			err := t.ExecuteTemplate(w, "index_en.html", data)
-			if err != nil {
-				http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
-			}
+			err = t.ExecuteTemplate(w, "index_en.html", data)
+
 		} else if r.URL.Path == "/fr" {
 			data := PageContent{
 				Header:           "Pour une démo, envoyez simplement le mot « DEMO » au",
@@ -84,12 +83,15 @@ func main() {
 				},
 			}
 
-			err := t.ExecuteTemplate(w, "index_fr.html", data)
-			if err != nil {
-				http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
-			}
+			err = t.ExecuteTemplate(w, "index_fr.html", data)
+
+		} else if r.URL.Path == "/toggle-menu" {
+			err = t.ExecuteTemplate(w, "menu_modal.html", nil)
 		} else {
 			http.NotFound(w, r)
+		}
+		if err != nil {
+			http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
 		}
 
 	})
