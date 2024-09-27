@@ -72,8 +72,10 @@
             <button
               onclick="openSignInAlert()"
               class="p-2 rounded-md hover:bg-gray-600 whitespace-nowrap"
+              aria-label="Login"
             >
               <i class="bi bi-chat"></i>
+              <span class="sr-only">Login</span>
               <p class="inline-block ml-1">Login</p>
             </button>
             <button
@@ -81,8 +83,10 @@
               hx-replace-url="true"
               hx-target="#main-content"
               class="p-2 rounded-md hover:bg-gray-600 whitespace-nowrap"
+              aria-label="Change language"
             >
               <i class="bi bi-gear"></i>
+              <span class="sr-only">Change language</span>
               <p class="inline-block ml-1">FR</p>
             </button>
           </div>
@@ -91,15 +95,17 @@
             hx-get="/toggle-menu"
             hx-target="#menu"
             hx-swap="innerHTML"
+            aria-label="Open menu"
           >
             <i class="bi bi-list text-3xl"></i>
+            <span class="sr-only">Open menu</span>
           </button>
         </div>
       </header>
 
       <!-- Main banner -->
       <div
-        class="flex w-full items-center justify-center h-[calc(100lvh-5rem)] md:min-h-[80vh] md:max-h-[37.5rem] px-4 bg-gradient-to-br from-gray-800 via-black to-gray-900 relative overflow-hidden"
+        class="flex w-full items-center justify-center h-[calc(100lvh-4rem)] md:min-h-[80vh] md:max-h-[37.5rem] px-4 bg-gradient-to-br from-gray-800 via-black to-gray-900 relative overflow-hidden"
       >
         <div
           class="flex items-center justify-center absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"
@@ -210,7 +216,7 @@
               <img
                 src="{{ .ImageUrl }}"
                 onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
-                alt="{{ .CompanyName }} Logo"
+                alt=""
                 class="w-full"
                 role="presentation"
               />
@@ -232,11 +238,11 @@
 
       <!-- Contact section -->
       <section
-        class="flex flex-col w-full items-center justify-center h-[23.5rem] relative bg-center"
+        class="flex flex-col w-full items-center justify-center h-[23.5rem] relative bg-center overflow-hidden"
       >
         <img
           src="https://www.talksoon.com/assets/img/bg7.jpg"
-          class="w-full h-full brightness-50"
+          class="w-full h-auto brightness-50"
           alt=""
           role="presentation"
         />

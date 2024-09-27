@@ -36,8 +36,10 @@
       <button
         class="w-full text-end cursor-pointer mb-4"
         onclick="closeModal()"
+        aria-label="Close modal"
       >
         <i class="bi bi-x-lg text-3xl"></i>
+        <span class="sr-only">Close modal</span>
       </button>
       <button
         onclick="openSignInAlert()"
@@ -51,8 +53,10 @@
         hx-target="#main-content"
         id="language-button"
         class="w-full p-2 rounded-md hover:bg-gray-600 whitespace-nowrap border border-gray-50"
+        aria-label="Change language"
       >
         <i class="bi bi-gear"></i>
+        <span class="sr-only">Change language</span>
         <p id="language-text" class="inline-block ml-1">EN</p>
       </button>
     </div>
