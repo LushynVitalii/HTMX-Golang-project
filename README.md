@@ -24,5 +24,5 @@ A functional replica of the [TalkSoon website](https://www.talksoon.com/) , desi
 - Backend powered by Golang.
 
 ### Setup Instructions:
-1. Clone the repository: git clone ```https://github.com/yourusername/talksoon-replica.git```
+1. Clone the repository: git clone ```https://github.com/LushynVitalii/HTMX-Golang-project.git```
 2. ```go run app.go```
