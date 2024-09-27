@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <title>HTMX & Go</title>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="HTMX & Goland project, replica https://www.talksoon.com/"
+    />
+    <meta name="keywords" content="HTMX, Goland, JavaScript" />
+    <meta name="author" content="Vitalii Lushyn" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://unpkg.com/htmx.org@2.0.2"
@@ -20,7 +26,7 @@
     <div class="flex flex-col items-center">
       <!-- Navigation -->
       <header
-        class="fixed top-0 flex w-full items-center justify-center min-h-[4.25rem] px-4"
+        class="fixed top-0 z-10 flex w-full items-center justify-center min-h-[4.25rem] px-4"
         style="background-color: #2c2c2c"
       >
         <div
@@ -50,7 +56,7 @@
           </div>
           <div class="hidden lg:flex flex-row gap-2 uppercase text-xs">
             <button
-              href="#"
+              onclick="openSignInAlert()"
               class="p-2 rounded-md hover:bg-gray-600 whitespace-nowrap"
             >
               <i class="bi bi-chat"></i>
@@ -66,13 +72,37 @@
               <p class="inline-block ml-1">EN</p>
             </button>
           </div>
+          <button
+            class="lg:hidden"
+            hx-get="/toggle-menu"
+            hx-target="#menu"
+            hx-swap="innerHTML"
+          >
+            <i class="bi bi-list text-3xl"></i>
+          </button>
         </div>
       </header>
 
       <!-- Main banner -->
       <div
-        class="flex w-full items-center justify-center h-[calc(100lvh-3.5rem)] md:min-h-[80vh] md:max-h-[37.5rem] bg-zinc-900 px-4"
+        class="flex w-full items-center justify-center h-[calc(100lvh-5rem)] md:min-h-[80vh] md:max-h-[37.5rem] px-4 bg-gradient-to-br from-gray-800 via-black to-gray-900 relative overflow-hidden"
       >
+        <div
+          class="flex items-center justify-center absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"
+        ></div>
+        <style>
+          @keyframes shimmer {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
+          }
+          .animate-shimmer {
+            animation: shimmer 3s infinite linear;
+          }
+        </style>
         <div>
           <h1
             class="max-w-[43.75rem] mb-6 text-4xl md:text-[3rem] text-white font-bold text-center leading-tight"
@@ -250,11 +280,6 @@
         <div id="copyright" class="text-xs">
           &copy; <span id="year"></span>. TalkSoon Inc.
         </div>
-
-        <script>
-          document.getElementById("year").textContent =
-            new Date().getFullYear();
-        </script>
         <a
           href="tel:18559504006"
           aria-label="Appelez-nous au 18559504006"
@@ -265,5 +290,15 @@
         </a>
       </footer>
     </div>
+    <div id="menu" />
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function openSignInAlert() {
+        window.alert(
+          "Tu es génial d'avoir essayé ! Mais ceci n'est qu'une version de démonstration."
+        );
+      }
+    </script>
   </body>
 </html>
