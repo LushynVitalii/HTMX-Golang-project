@@ -14,6 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@157.6,600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      as="style"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@157.6,600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
@@ -24,17 +29,22 @@
         font-weight: 600;
         font-style: normal;
       }
+      @font-face {
+        font-family: "Lora";
+        font-display: swap;
+      }
     </style>
-    <script
-      src="https://unpkg.com/htmx.org@2.0.2"
-      integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <script
+      src="https://unpkg.com/htmx.org@2.0.2"
+      integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </head>
   <body id="main-content" class="bg-white overflow-x-hidden tracking-wider">
     <div class="flex flex-col items-center">
@@ -211,9 +221,12 @@
           <a
             href="{{ .CompanyUrl}}"
             target="_blank"
-            class="flex flex-col items-center justify-center aspect-square shadow-2xl p-4 md:p-8 rounded"
+            title="{{ .CompanyName}}"
+            class="flex flex-col items-center justify-center md:aspect-square shadow-2xl p-4 md:p-8 rounded"
           >
-            <div class="w-[70%] rounded-full shadow-2xl mb-7 overflow-hidden">
+            <div
+              class="w-[50%] md:w-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+            >
               <img
                 src="{{ .ImageUrl }}"
                 onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
@@ -239,7 +252,7 @@
 
       <!-- Contact section -->
       <section
-        class="flex flex-col w-full items-center justify-center h-[23.5rem] relative bg-center overflow-hidden"
+        class="flex flex-col w-full items-center justify-center max-h-[23.5rem] my-2 relative bg-center overflow-hidden"
       >
         <img
           src="https://www.talksoon.com/assets/img/bg7.jpg"
