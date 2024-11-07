@@ -56,20 +56,21 @@
         <div
           class="flex w-full items-center justify-between gap-4 text-white xl:max-w-[70%]"
         >
-          <div class="flex">
+          <div class="flex w-[10rem]">
             <a
               href="#"
               class="text-white"
               hx-on="click: window.scrollTo({top: 0, behavior: 'smooth'});"
             >
               <img
-                src="https://www.talksoon.com/assets/img/talksoon-logo-white.png"
+                src="https://framerusercontent.com/images/0WrjEC1FwoJUyq5K0Dl0noA3IZc.png?scale-down-to=512"
                 alt="Talksoon Logo"
-                class="w-[60%]"
+                class="w-[10rem]"
+                loading="eager"
               />
             </a>
           </div>
-          <div class="hidden lg:block text-sm">
+          <div class="hidden lg:flex text-sm whitespace-nowrap">
             {{ .Header }}
             <a
               href="tel:18559504006"
@@ -221,16 +222,17 @@
             href="{{ .CompanyUrl}}"
             target="_blank"
             title="{{ .CompanyName}}"
-            class="flex flex-col items-center justify-center md:aspect-square shadow-2xl p-4 md:p-8 rounded"
+            class="flex flex-col items-center justify-center shadow-2xl p-6 md:p-8 rounded"
           >
             <div
-              class="w-[50%] md:w-[70%] rounded-full shadow-2xl mb-7 overflow-hidden"
+              class="flex items-center justify-center w-[40%] md:w-[70%] aspect-square rounded-full shadow-2xl mb-7 overflow-hidden"
             >
               <img
                 src="{{ .ImageUrl }}"
                 onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
                 alt=""
-                class="w-full"
+                class="w-[80%]"
+                loading="lazy"
                 role="presentation"
               />
             </div>
