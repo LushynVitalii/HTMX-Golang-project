@@ -54,7 +54,7 @@
         style="background-color: #2c2c2c"
       >
         <div
-          class="flex w-full items-center justify-between gap-4 text-white xl:max-w-[70%]"
+          class="flex w-full items-center justify-between gap-4 text-white xl:w-[75%]"
         >
           <div class="flex w-[10rem]">
             <a
@@ -216,14 +216,14 @@
           Merci à nos utilisateurs bêta !
         </h2>
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[100%] xl:max-w-[70%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:w-[75%] w-full justify-center mt-20 mb-16 gap-x-4 lg:gap-x-8 gap-y-16 lg:gap-y-20"
         >
           {{ range .BetaUsers }}
           <a
             href="{{ .CompanyUrl}}"
             target="_blank"
             title="{{ .CompanyName}}"
-            class="flex flex-col items-center justify-center shadow-2xl p-6 md:p-8 rounded"
+            class="flex w-full flex-col items-center justify-center shadow-2xl py-6 px-4 rounded"
           >
             <div
               class="flex items-center justify-center w-[40%] md:w-[70%] aspect-square rounded-full shadow-2xl mb-7 overflow-hidden"
@@ -233,7 +233,6 @@
                 onerror="if (this.src != 'error.jpg') this.src = 'assets/images/logo-fallback.webp';"
                 alt=""
                 class="w-[80%]"
-                loading="lazy"
                 role="presentation"
               />
             </div>
@@ -257,7 +256,7 @@
         class="flex flex-col w-full items-center justify-center max-h-[23.5rem] my-2 relative bg-center overflow-hidden"
       >
         <img
-          src="https://www.talksoon.com/assets/img/bg7.jpg"
+          src="https://t3.ftcdn.net/jpg/06/29/79/34/360_F_629793470_KZMbjEK1r18Esu5dm9E54i9o4BzSs6gv.jpg"
           class="w-full h-auto brightness-50"
           alt=""
           role="presentation"
@@ -283,7 +282,7 @@
 
       <!-- Footer -->
       <footer
-        class="flex flex-col md:flex-row w-full gap-6 items-center justify-between mb-[5rem] md:mb-0 min-h-[4rem] max-w-[100%] lg:max-w-[70%] px-4 py-4 font-extralight"
+        class="flex flex-col md:flex-row w-full gap-6 items-center justify-between mb-[5rem] md:mb-0 min-h-[4rem] lg:w-[75%] px-4 py-4 font-extralight"
       >
         <div
           class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-800 uppercase"
