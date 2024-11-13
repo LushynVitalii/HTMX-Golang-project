@@ -3,7 +3,8 @@
 You can see the project live - https://htmx-golang-project.fly.dev/
 
 ## TalkSoon Replica
-A functional replica of the [TalkSoon website](https://www.talksoon.com/) , designed to mimic the layout and features of the original.
+A functional replica of the [TalkSoon website](https://www.talksoon.com/) , designed to mimic the layout and features of the original.<br />
+```UPDATE: Since November 2024 Talksoon website was fully updated.```
 
 ## Technologies Used
 
